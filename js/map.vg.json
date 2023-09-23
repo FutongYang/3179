@@ -1,0 +1,65 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 1000,
+  "height": 800,
+  "title": {
+    "text":"Wildfires in Australia during 2020",
+    "fontSize":20,
+    "font":"Roboto"
+  },
+  "projection": {"type": "equalEarth"},
+  "params": [
+      {
+          "name": "brightness_filter",
+          "value": 300,
+          "bind": {
+              "input": "range",
+              "min": 300,
+              "max": 500,
+              "step": 1,
+              "name": "Brightness Filter: "
+          }
+      }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "ne_110m_admin_0_countries.json",
+        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+      },
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "black"}
+    },
+    {
+      "data": {
+        "url": "fire_archive_M6_96619.csv"
+      },
+      "transform": [
+          {"filter": "datum.brightness >= brightness_filter"}
+      ],
+      "mark": {"type": "circle", "tooltip": {"content": "data"}},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "size": {
+          "field": "brightness",
+          "type": "quantitative",
+          "title": "Brightness",
+          "scale": {"domain": [300, 500]}
+        },
+        "color": {
+          "field": "confidence",
+          "type": "quantitative",
+          "title": "Confidence",
+          "scale": {"scheme": "orangered"}
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "ne_110m_admin_0_countries.json",
+        "format": {"type": "topojson", "feature": "ne_110m_graticules_10"}
+      },
+      "mark": {"type": "geoshape", "fill": null, "stroke": "black"}
+    }
+  ]
+}

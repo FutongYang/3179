@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  
+  <!-- CSS file -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" 
+      integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+
+  <div class="page">
+    <!-- Main Title for the Page -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+          <h1>A Comprehensive Analysis of Fire Data</h1>
+          <p>Delve into a detailed exploration of fire patterns, intensities, and trends based on data from Australia and New Zealand.</p>
+          <hr> <!-- Horizontal line for separation -->
+      </div>
+    </div>
+
+  <!-- pure grid group for the map -->
+  <div class="pure-g">
+    <!-- Map Visualization -->
+    <div class="pure-u-2-3">
+        <div id="map_chart" class="vis-container"></div>
+    </div>
+    <!-- Description for the Map -->
+    <div class="pure-u-1-3">
+        <h2>Geographical Distribution</h2>
+        <p>This map showcases the geographical distribution of the fires.</p>
+    </div>
+  </div>
+
+  <!-- pure grid group for bar and bubble charts -->
+  <div class="pure-g">
+    <div class="pure-u-1-2">
+      
+      <p>The bar chart below depicts the distribution of fire brightness.</p>
+      <div id="bar_chart" class="vis-container "></div>
+      <hr> <!-- Horizontal line for separation -->
+    </div>
+    <div class="pure-u-1-2">
+      
+      <p>The bubble chart provides a temporal view of fire brightness, helping us understand the trends over time.</p>
+      <div id="bubble_chart" class="vis-container"></div>
+      <hr> <!-- Horizontal line for separation -->
+    </div>
+  </div>
+
+  <!-- pure grid group for pie and line charts -->
+  <div class="pure-g">
+    <div class="pure-u-1-2">
+      
+      <p>This pie chart breaks down the fire data based on the satellites that captured the information.</p>
+      <div id="pie_chart" class="vis-container"></div>
+    </div>
+    <div class="pure-u-1-2">
+      
+      <p>The line chart gives an overview of the fire intensity over a period of time.</p>
+      <div id="line_chart" class="vis-container"></div>
+    </div>
+  </div>
+
+  <div class="pure-g">
+    <div class="pure-u-1-1 small-font">
+      <p>This visualisation is created by <a href="https://fit3179.github.io/Vega-Lite/" target="_blank">Futong Yang
+      </a>. The datasource is <a href="#" target=" _blank">some data repository online</href>.</p>
+    </div>
+  </div>
+
+</div>
+
+<script type="text/javascript">
+  var spec1 = "js/map.vg.json";
+  var spec2 = "js/bar.vg.json";
+  var spec3 = "js/bubble.vg.json";
+  var spec4 = "js/pie.vg.json";
+  var spec5 = "js/line.vg.json";
+  vegaEmbed('#map_chart', spec1).then(function(result) {}).catch(console.error);
+  vegaEmbed('#bar_chart', spec2).then(function(result) {}).catch(console.error);
+  vegaEmbed('#bubble_chart', spec3).then(function(result) {}).catch(console.error);
+  vegaEmbed('#pie_chart', spec4).then(function(result) {}).catch(console.error);   
+  vegaEmbed('#line_chart', spec5).then(function(result) {}).catch(console.error);
+</script>
+
+</body>
+</html>
