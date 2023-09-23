@@ -4,7 +4,7 @@ body *{
   
   h1 {
     font-weight: 900;
-    font-family: 'Times New Roman', sans-serif;  /* 如果你选择 Times New Roman, 则替换为 'Times New Roman', serif; */
+    font-family: 'Times New Roman', sans-serif;  
     color: #4290df;
     font-size: 50px;
     text-align: center;
@@ -24,8 +24,8 @@ body *{
   }
 
   .map_chart {
-    width: 80%; /* or any other percentage or fixed width you prefer */
-    margin: 0 auto; /* this will center the map chart if it has a width less than its container */
+    width: 80%; 
+    margin: 0 auto; 
     align-self: center;
 }
 
