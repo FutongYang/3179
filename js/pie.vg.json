@@ -1,0 +1,78 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 600,
+  "data": {
+    "url": "fire_archive_M6_96619.csv"
+  },
+  "transform": [
+    {
+      "calculate": "if(datum.brightness < 320, '<320', if(datum.brightness < 340, '320-340', if(datum.brightness < 360, '340-360', if(datum.brightness < 380, '360-380', '380-500'))))",
+      "as": "brightness_range"
+    }
+  ],
+  "selection": {
+    "brightness_selection": {
+      "type": "multi",
+      "fields": ["brightness_range"],
+      "bind": "legend"
+    }
+  },
+  "mark": {
+    "type": "arc",
+    "innerRadius": 60
+  },
+  "encoding": {
+    "theta": {
+      "field": "brightness_range",
+      "type": "nominal",
+      "aggregate": "count",
+      "stack": true
+    },
+    "color": {
+      "field": "brightness_range",
+      "type": "nominal",
+      "legend": {
+        "title": "Brightness Range",
+        "labelFontSize": 12
+      },
+      "scale": {
+        "scheme": "set2"
+      }
+    },
+    "opacity": {
+      "condition": {"selection": "brightness_selection", "value": 1},
+      "value": 0.2
+    },
+    "tooltip": [
+      {
+        "field": "brightness_range",
+        "type": "nominal",
+        "title": "Brightness Range"
+      },
+      {
+        "aggregate": "count",
+        "type": "quantitative",
+        "title": "Number of Fires"
+      }
+    ]
+  },
+  "title": {
+    "text": "Distribution of Fires by Brightness Range",
+    "fontSize": 20,
+    "font":"Roboto",
+    "subtitle": "Number of fires in different brightness ranges",
+    "subtitleFontSize": 12
+  },
+  "view": {
+    "stroke": "transparent"
+  },
+  "config": {
+    "arc": {
+      "stroke": "#fff"
+    },
+    "legend": {
+      "orient": "right"
+    }
+  }
+}

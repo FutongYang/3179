@@ -1,0 +1,46 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 770,
+  "height": 600,
+  "data": {
+    "url": "fire_archive_M6_96619.csv"
+  },
+  "transform": [
+    {"filter": "datum.brightness!=0" }
+  ],
+  "mark": {
+    "type": "bar",
+    "size": 20
+  },
+  "encoding": {
+    "x": {
+      "bin": {"maxbins": 50},
+      "field": "brightness",
+      "type": "quantitative",
+      "title": "Brightness",
+      "scale": {"type": "log"}
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "title": "Number of Fires",
+      "axis": {"grid": true}
+    },
+    "color": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "legend": {"title": "Num of Fire"},
+      "scale": {"scheme": "blues"}
+    },
+    "tooltip": [
+      {"field": "brightness", "type": "quantitative", "title": "Brightness"},
+      {"aggregate": "count", "type": "quantitative", "title": "Number of Fires"}
+    ]
+  },
+  "title": {
+    "text": "Distribution of Brightness (Log Scale)",
+    "fontSize": 20,
+    "font":"Roboto"
+    
+  }
+}
