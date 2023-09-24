@@ -3,7 +3,7 @@
   "width": 770,
   "height": 600,
   "data": {
-    "url": "fire_archive_M6_96619.csv"
+    "url": "https://raw.githubusercontent.com/FutongYang/3179/main/data/fire_archive_M6_96619.csv"
   },
   "transform": [
     {"filter": "datum.brightness!=0" }
