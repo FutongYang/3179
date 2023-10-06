@@ -1,46 +1,77 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 770,
+  "width": 700,
   "height": 600,
   "data": {
     "url": "https://raw.githubusercontent.com/FutongYang/3179/main/data/fire_archive_M6_96619.csv"
   },
   "transform": [
-    {"filter": "datum.brightness!=0" }
+    {"filter": "datum.brightness!=0 && datum.brightness <= 400"},
+    {
+      "timeUnit": "month",
+      "field": "acq_date",
+      "as": "month"
+    },
+    {
+      "bin": {"maxbins": 5},
+      "field": "brightness",
+      "as": "brightness_binned"
+    },
+    {
+      "aggregate": [{"op": "count", "as": "num_fires"}],
+      "groupby": ["brightness_binned", "month"]
+    },
+    {
+      "window": [{"op": "sum", "field": "num_fires", "as": "total_fires"}],
+      "frame": [null, null]
+    },
+    {
+      "calculate": "datum.num_fires / datum.total_fires",
+      "as": "normalized_fires"
+    }
   ],
-  "mark": {
-    "type": "bar",
-    "size": 20
+  "mark": "area",
+  "selection": {
+    "selected": {
+      "type": "multi",
+      "fields": ["brightness_binned"],
+      "bind": "legend",
+      "empty": "all"
+    }
   },
   "encoding": {
     "x": {
-      "bin": {"maxbins": 50},
-      "field": "brightness",
-      "type": "quantitative",
-      "title": "Brightness",
-      "scale": {"type": "log"}
+      "field": "month",
+      "type": "temporal",
+      "title": "Month in 2020",
+      "axis": {"labelAngle": 0, "format": "%b"}
     },
     "y": {
-      "aggregate": "count",
+      "field": "normalized_fires",
       "type": "quantitative",
-      "title": "Number of Fires",
-      "axis": {"grid": true}
+      "title": "Percentage of Fires",
+      "axis": {"format": ".0%"}
     },
     "color": {
-      "aggregate": "count",
-      "type": "quantitative",
-      "legend": {"title": "Num of Fire"},
-      "scale": {"scheme": "blues"}
+      "field": "brightness_binned",
+      "type": "nominal",
+      "scale": {"scheme": "tableau10"},
+      "legend": {"title": "Brightness Bin"}
+    },
+    "opacity": {
+      "condition": {"selection": "selected", "value": 1},
+      "value": 0.5
     },
     "tooltip": [
-      {"field": "brightness", "type": "quantitative", "title": "Brightness"},
-      {"aggregate": "count", "type": "quantitative", "title": "Number of Fires"}
+      {"field": "brightness_binned", "type": "quantitative", "title": "Brightness"},
+      {"field": "num_fires", "type": "quantitative", "title": "Number of Fires"},
+      {"field": "normalized_fires", "type": "quantitative", "title": "Percentage of Fires", "format": ".1%"},
+      {"field": "month", "type": "temporal", "title": "Month", "format": "%B"}
     ]
   },
   "title": {
-    "text": "Distribution of Brightness (Log Scale)",
+    "text": "Normalized Distribution of Brightness (Binned) Over Time",
     "fontSize": 20,
-    "font":"Roboto"
-    
+    "font": "Roboto"
   }
 }

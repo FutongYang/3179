@@ -1,26 +1,67 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 950,
-  "height": 800,
+  "width": 900,
+  "height": 700,
   "title": {
-    "text":"Wildfires in Australia during 2020",
-    "fontSize":20,
-    "font":"Roboto"
+    "text": "Wildfires in Australia during 2020",
+    "fontSize": 20,
+    "font": "Roboto"
   },
-  "projection": {"type": "equalEarth"},
   "params": [
-      {
-          "name": "brightness_filter",
-          "value": 300,
-          "bind": {
-              "input": "range",
-              "min": 300,
-              "max": 500,
-              "step": 1,
-              "name": "Brightness Filter: "
-          }
+    {
+      "name": "brightness_filter",
+      "value": 300,
+      "bind": {
+        "input": "range",
+        "min": 300,
+        "max": 500,
+        "step": 1,
+        "name": "Brightness Filter: "
       }
+    },
+    {
+      "name": "zoomLevel",
+      "value": 1000,
+      "bind": {
+        "input": "range",
+        "min": 500,
+        "max": 3000,
+        "step": 100,
+        "name": "Zoom Level: "
+      }
+    },
+    {
+      "name": "translateX",
+      "value": 450,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 900,
+        "step": 10,
+        "name": "Translate X: "
+      }
+    },
+    {
+      "name": "translateY",
+      "value": 350,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 700,
+        "step": 10,
+        "name": "Translate Y: "
+      }
+    }
   ],
+  "projection": {
+    "type": "mercator",
+    "center": [132, -28],
+    "scale": {"signal": "zoomLevel"},
+    "translate": [
+      {"signal": "translateX"},
+      {"signal": "translateY"}
+    ]
+  },
   "layer": [
     {
       "data": {
@@ -34,7 +75,7 @@
         "url": "https://raw.githubusercontent.com/FutongYang/3179/main/data/fire_archive_M6_96619.csv"
       },
       "transform": [
-          {"filter": "datum.brightness >= brightness_filter"}
+        {"filter": "datum.brightness >= brightness_filter"}
       ],
       "mark": {"type": "circle", "tooltip": {"content": "data"}},
       "encoding": {
@@ -53,13 +94,6 @@
           "scale": {"scheme": "orangered"}
         }
       }
-    },
-    {
-      "data": {
-        "url": "https://raw.githubusercontent.com/FutongYang/3179/main/js/ne_110m_admin_0_countries.json",
-        "format": {"type": "topojson", "feature": "ne_110m_graticules_10"}
-      },
-      "mark": {"type": "geoshape", "fill": null, "stroke": "black"}
     }
   ]
 }

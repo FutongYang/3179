@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 700,
-  "height": 600,
+  "width": 650,
+  "height": 580,
   "data": {
     "url": "https://raw.githubusercontent.com/FutongYang/3179/main/data/fire_archive_M6_96619.csv"
   },

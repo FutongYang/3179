@@ -21,63 +21,74 @@
 
   <div class="page">
     <!-- Main Title for the Page -->
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-          <h1>A Comprehensive Analysis of Fire Data</h1>
-          <p>Delve into a detailed exploration of fire patterns, intensities, and trends based on data from Australia and New Zealand.</p>
-          <hr> <!-- Horizontal line for separation -->
-      </div>
+    <div class="pure-g section">
+        <div class="pure-u-1-1">
+            <h1>A Comprehensive Analysis of Fire Data</h1>
+            <p>Delve into a detailed exploration of fire patterns, intensities, and trends based on data from Australia and New Zealand.</p>
+        </div>
     </div>
 
-  <!-- pure grid group for the map -->
-  <div class="pure-g">
-    <!-- Map Visualization -->
-    <div class="pure-u-2-3">
-        <div id="map_chart" class="vis-container"></div>
+    <!-- Map Section -->
+    <div class="pure-g section">
+        <div class="pure-u-2-3">
+            <div id="map_chart" class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-3">
+            <h2>Geographical Distribution of Fires in Australia</h2>
+            <p class="description-text">This map provides a detailed representation of the distribution of fires across various regions of Australia:</p>
+        <ul class="spaced-items">
+            <li><strong>New South Wales and Victoria (Southeastern Australia):</strong> This region has witnessed a significantly high number of fires, making it the most affected area.</li>
+            <li><strong>Queensland (Northeastern Australia):</strong> The fires in this region are moderate in number, indicating a considerable impact but not as severe as the southeastern region.</li>
+            <li><strong>Northern Territory (Central Northern Australia):</strong> This region has experienced a high frequency of fires, though not as intense as the southeastern and northeastern regions.</li>
+            <li><strong>Western Australia (Southwestern Australia):</strong> The fires in this region are relatively fewer, indicating that it is less affected compared to the other regions.</li>
+        </ul>
+        </div>
     </div>
-    <!-- Description for the Map -->
-    <div class="pure-u-1-3">
-        <h2>Geographical Distribution</h2>
-        <p>This map showcases the geographical distribution of the fires.</p>
-    </div>
-  </div>
 
-  <!-- pure grid group for bar and bubble charts -->
-  <div class="pure-g">
-    <div class="pure-u-1-2">
-      
-      <p>The bar chart below depicts the distribution of fire brightness.</p>
-      <div id="bar_chart" class="vis-container "></div>
-      <hr> <!-- Horizontal line for separation -->
+    <!-- Bar and Bubble Charts Section -->
+    <div class="pure-g section">
+        <div class="pure-u-1-2">
+            <h2>Brightness Distribution of Fires in Australia (2020)</h2>
+            <div id="bar_chart" class="vis-container"></div>
+            <p class="description-text">
+                The bar chart illustrates the distribution of fire brightness in Australia for 2020. Notably, fires with brightness levels exceeding 370 were rare, each having fewer than 10 occurrences. The most frequent brightness range was between 325-330, with a total of 159 fires. This was closely followed by the 320-325 range, which recorded 131 fires. The chart provides a clear insight into the predominant brightness levels of fires during the year.
+            </p>
+        </div>
+        <div class="pure-u-1-2">
+            <h2>Temporal Brightness Trends of Fires in Australia (2020)</h2>
+            <div id="bubble_chart" class="vis-container"></div>
+            <p class="description-text">The chart illustrates the brightness trends of fires in Australia in 2020, as detected by the Aqua and Terra satellites. Notably, Aqua recorded slightly higher brightness levels, suggesting more intense fires or higher sensitivity. In contrast, Terra detected fires more frequently, indicating its capability to identify more fire events. This data comparison underscores the significance of utilizing various observational tools to comprehensively understand wildfire characteristics and occurrences.</p>
+        </div>
     </div>
-    <div class="pure-u-1-2">
-      
-      <p>The bubble chart provides a temporal view of fire brightness, helping us understand the trends over time.</p>
-      <div id="bubble_chart" class="vis-container"></div>
-      <hr> <!-- Horizontal line for separation -->
-    </div>
-  </div>
 
-  <!-- pure grid group for pie and line charts -->
-  <div class="pure-g">
-    <div class="pure-u-1-2">
-      
-      <p>This pie chart breaks down the fire data based on the satellites that captured the information.</p>
-      <div id="pie_chart" class="vis-container"></div>
+    <!-- Pie and Line Charts Section -->
+    <div class="pure-g section">
+        <div class="pure-u-1-2">
+            <h2>Fire Data by Satellite in Australia (2020)</h2>
+            <div id="pie_chart" class="vis-container"></div>
+            <p class="description-text">
+                The pie chart showcases the distribution of fire brightness in Australia for 2020. The majority of fires, totaling 17,290, fell within the brightness range of 320-340. Fires with brightness below 320 were also significant, with 11,522 occurrences. In contrast, the brightness range of 380-500 had the fewest fires, with only 768 recorded. The intervals 340-360 and 360-380 had 5,014 and 1,420 fires respectively, indicating a decreasing trend as brightness increased.
+            </p>
+        </div>
+        <div class="pure-u-1-2">
+            <h2>Fire Intensity Trends in Australia (2020)</h2>
+            <div id="line_chart" class="vis-container"></div>
+            <p class="description-text">
+                The line chart illustrates the fire intensity trends in Australia during 2020, as detected by the Aqua and Terra satellites. While both satellites demonstrate a relatively stable average confidence level in their fire detection, Aqua has identified a notably higher number of fires compared to Terra. This discrepancy might be attributed to the different technologies or orbit patterns of the satellites, providing varied coverage and detection capabilities.
+            </p>
+            
+        </div>
     </div>
-    <div class="pure-u-1-2">
-      
-      <p>The line chart gives an overview of the fire intensity over a period of time.</p>
-      <div id="line_chart" class="vis-container"></div>
-    </div>
-  </div>
 
-  <div class="pure-g">
-    <div class="pure-u-1-1 small-font">
-      <p>This visualisation is created by <a href="https://fit3179.github.io/Vega-Lite/" target="_blank">Futong Yang
-      </a>. The datasource is <a href="#" target=" _blank">some data repository online</href>.</p>
+    <!-- Footer Section -->
+    <div class="pure-g section">
+        <div class="pure-u-1-1 small-font">
+            <p class="description-text">This visualisation is created by <a href="https://fit3179.github.io/Vega-Lite/" target="_blank">Futong Yang</a>. The datasource is <a href="#" target="_blank">some data repository online</a>.</p>
+        </div>
     </div>
-  </div>
+</div>
+        </div>
+    </div>
 
 </div>
 
