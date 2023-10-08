@@ -7,46 +7,64 @@
     {
       "width": 700,
       "height": 440,
-      "transform": [
+      "layer": [
         {
-          "aggregate": [
-            {"op": "mean", "field": "brightness", "as": "avg_brightness"},
-            {"op": "count", "field": "brightness", "as": "count_brightness"}
+          "transform": [
+            {
+              "aggregate": [
+                {"op": "mean", "field": "brightness", "as": "avg_brightness"},
+                {"op": "count", "field": "brightness", "as": "count_brightness"}
+              ],
+              "groupby": ["acq_date", "satellite"]
+            }
           ],
-          "groupby": ["acq_date", "satellite"]
+          "mark": "circle",
+          "encoding": {
+            "x": {
+              "field": "acq_date",
+              "type": "temporal",
+              "title": "Acquisition Date",
+              "scale": {"domain": {"param": "brush"}}
+            },
+            "y": {
+              "field": "avg_brightness",
+              "type": "quantitative",
+              "title": "Average Brightness",
+              "scale": {"domain": [250, 400]}
+            },
+            "color": {
+              "field": "satellite",
+              "type": "nominal",
+              "title": "Satellite"
+            },
+            "size": {
+              "field": "count_brightness",
+              "type": "quantitative",
+              "title": "Num of Fires"
+            },
+            "tooltip": [
+              {"field": "acq_date", "type": "temporal", "title": "Date"},
+              {"field": "avg_brightness", "type": "quantitative", "title": "Average Brightness"},
+              {"field": "satellite", "type": "nominal", "title": "Satellite"},
+              {"field": "count_brightness", "type": "quantitative", "title": "Number of Fires"}
+            ]
+          }
+        },
+        {
+          "mark": {"type": "text", "fontSize": 12},
+          "data": {
+            "values": [
+              {"date": "2019-09-20", "brightness": 350, "text": "Highest"}
+            ]
+          },
+          "encoding": {
+            "x": {"field": "date", "type": "temporal", "offset": 10},
+            "y": {"field": "brightness", "type": "quantitative", "offset": -15},
+            "text": {"field": "text", "type": "nominal"},
+            "color": {"value": "black"}
+          }
         }
       ],
-      "mark": "circle",
-      "encoding": {
-        "x": {
-          "field": "acq_date",
-          "type": "temporal",
-          "title": "Acquisition Date",
-          "scale": {"domain": {"param": "brush"}}
-        },
-        "y": {
-          "field": "avg_brightness",
-          "type": "quantitative",
-          "title": "Average Brightness",
-          "scale": {"domain": [250, 400]}
-        },
-        "color": {
-          "field": "satellite",
-          "type": "nominal",
-          "title": "Satellite"
-        },
-        "size": {
-          "field": "count_brightness",
-          "type": "quantitative",
-          "title": "Num of Fires"
-        },
-        "tooltip": [
-          {"field": "acq_date", "type": "temporal", "title": "Date"},
-          {"field": "avg_brightness", "type": "quantitative", "title": "Average Brightness"},
-          {"field": "satellite", "type": "nominal", "title": "Satellite"},
-          {"field": "count_brightness", "type": "quantitative", "title": "Number of Fires"}
-        ]
-      },
       "title": {
         "text": "Average Brightness over Time by Satellite",
         "fontSize": 20,
