@@ -17,9 +17,12 @@ h1 {
 
   body {
     background-color: lightgray;
+    height: 100%;
   }
 
-  body::before {
+  
+
+body::before {
     content: "";
     position: fixed;  
     top: 0;
@@ -28,7 +31,8 @@ h1 {
     left: 0;
     z-index: -1;  
     background-color: rgba(13, 134, 40, 0.329);  
-  }
+}
+
   
   .page {
     width: auto;
