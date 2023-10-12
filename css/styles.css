@@ -1,18 +1,33 @@
-body *{
-    font-family: 'Open Sans', sans-serif;
-  }
-  
-  h1 {
+h1 {
     font-weight: 900;
     font-family: 'Times New Roman', sans-serif;  
-    color: #4290df;
-    font-size: 50px;
+    color: #0f7ff0;  
+    font-size: 52px;
     text-align: center;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+  h2 {
+      font-size: 26px;       
+      font-weight: 600;  
+      color: #1555a386;     
+      margin-bottom: 10px;    
+      text-align: left;     
   }
-  
 
   body {
     background-color: lightgray;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;  
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;  
+    background-color: rgba(13, 134, 40, 0.329);  
   }
   
   .page {
@@ -29,10 +44,7 @@ body *{
     align-self: center;
 }
 
-  .description h2,
-  h1 {
-    margin-top: 0px;
-  }
+  
   
   .description-right {
     padding-left: 20px;
@@ -51,10 +63,19 @@ body *{
   }
 
   .section {
-    border: 1px solid #e0e0e0;
+    border: 5px solid #e0e0e0;  
     padding: 20px;
     margin: 20px 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  
+    border-radius: 10px;
 }
+
+.section:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+
 .section h2 {
     border-bottom: 1px solid #e0e0e0;
     padding-bottom: 10px;
@@ -100,21 +121,31 @@ body {
   margin-bottom: 0.5em; 
 }
 
+
 .description-text {
-  font-size: 15px;    
-  font-weight: 400;  
+  font-size: 20px;    
+  font-weight: 500;  
   line-height: 1.5;   
   color: #1b1d1d;     
   margin-bottom: 1em; 
   margin-right: 5em;  
-  text-align: center; 
+  text-align: left; 
+  max-width: 550px;  
+  margin-bottom: 20px;  
+  margin-left: 100px;  
+  
 }
 
-h2 {
-  font-size: 24px;       
-  font-weight: 700;       
-  color: #19af2d;       
-  margin-bottom: 10px;    
-  text-align: left;     
+.bot-text{
+  text-align: center;
 }
+p, li {
+  text-align: justify;
+  font-family: 'Montserrat', sans-serif;
+  
+}
+
+
+
+
 

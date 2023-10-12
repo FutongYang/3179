@@ -20,7 +20,8 @@
   },
   "mark": {
     "type": "arc",
-    "innerRadius": 60
+    "innerRadius": 20,
+    "stroke": "#fff"
   },
   "encoding": {
     "theta": {

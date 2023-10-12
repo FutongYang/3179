@@ -3,7 +3,7 @@
   "width": 900,
   "height": 700,
   "title": {
-    "text": "Wildfires in Australia during 2020",
+    "text": "Wildfires in Australia during 2019",
     "fontSize": 20,
     "font": "Roboto"
   },
@@ -77,22 +77,59 @@
       "transform": [
         {"filter": "datum.brightness >= brightness_filter"}
       ],
-      "mark": {"type": "circle", "tooltip": {"content": "data"}},
+      "mark": {
+        "type": "circle",
+        "tooltip": {
+          "content": "encoding"
+        }
+      },
       "encoding": {
-        "longitude": {"field": "longitude", "type": "quantitative"},
-        "latitude": {"field": "latitude", "type": "quantitative"},
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
         "size": {
           "field": "brightness",
           "type": "quantitative",
           "title": "Brightness",
-          "scale": {"domain": [300, 500]}
+          "scale": {
+            "domain": [300, 500]
+          }
         },
         "color": {
           "field": "confidence",
           "type": "quantitative",
           "title": "Confidence",
-          "scale": {"scheme": "orangered"}
-        }
+          "scale": {
+            "scheme": "orangered"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "latitude",
+            "type": "quantitative",
+            "title": "Latitude"
+          },
+          {
+            "field": "longitude",
+            "type": "quantitative",
+            "title": "Longitude"
+          },
+          {
+            "field": "brightness",
+            "type": "quantitative",
+            "title": "Brightness Level"
+          },
+          {
+            "field": "confidence",
+            "type": "quantitative",
+            "title": "Confidence Level"
+          }
+        ]
       }
     }
   ]

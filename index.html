@@ -24,7 +24,6 @@
     <div class="pure-g section">
         <div class="pure-u-1-1">
             <h1>A Comprehensive Analysis of Fire Data</h1>
-            <p>Delve into a detailed exploration of fire patterns, intensities, and trends based on data from Australia and New Zealand.</p>
         </div>
     </div>
 
@@ -35,55 +34,74 @@
         </div>
         <div class="pure-u-1-3">
             <h2>Geographical Distribution of Fires in Australia</h2>
-            <p class="description-text">This map provides a detailed representation of the distribution of fires across various regions of Australia:</p>
+            
         <ul class="spaced-items">
             <li><strong>New South Wales and Victoria (Southeastern Australia):</strong> This region has witnessed a significantly high number of fires, making it the most affected area.</li>
             <li><strong>Queensland (Northeastern Australia):</strong> The fires in this region are moderate in number, indicating a considerable impact but not as severe as the southeastern region.</li>
             <li><strong>Northern Territory (Central Northern Australia):</strong> This region has experienced a high frequency of fires, though not as intense as the southeastern and northeastern regions.</li>
             <li><strong>Western Australia (Southwestern Australia):</strong> The fires in this region are relatively fewer, indicating that it is less affected compared to the other regions.</li>
+            <li><strong>Brisbane and Sydney (Eastern Australia):</strong> These cities experienced notable fire incidents, especially in outskirts and rural areas, challenging authorities and communities, affecting air quality, disrupting ecosystems, and prompting evacuations.</li>
         </ul>
         </div>
     </div>
 
     <!-- Bar and Bubble Charts Section -->
     <div class="pure-g section">
+        <!-- Title for Both Charts -->
+        <div class="pure-u-1">
+            <h2>Analysis of Fire Brightness Distribution and Temporal Trends in Australia (2019)</h2>
+        </div>
+        
+        <!-- Left Side: Bar Chart and Description -->
         <div class="pure-u-1-2">
-            <h2>Brightness Distribution of Fires in Australia (2020)</h2>
             <div id="bar_chart" class="vis-container"></div>
             <p class="description-text">
-                The bar chart illustrates the distribution of fire brightness in Australia for 2020. Notably, fires with brightness levels exceeding 370 were rare, each having fewer than 10 occurrences. The most frequent brightness range was between 325-330, with a total of 159 fires. This was closely followed by the 320-325 range, which recorded 131 fires. The chart provides a clear insight into the predominant brightness levels of fires during the year.
+                The area chart reveals notable trends in fire brightness in Australia during August and September 2019. Generally, fires with brightness levels of 300 and 320 were more prevalent, while those above 340 were considerably rarer. A subtle increase in brightness levels was observed from August to September, indicating a potential escalation in fire intensity or frequency during this period. This visualization aids in understanding the temporal shifts in fire characteristics over these two pivotal months.
             </p>
         </div>
+        
+
+        
+        <!-- Right Side: Bubble Chart and Description -->
         <div class="pure-u-1-2">
-            <h2>Temporal Brightness Trends of Fires in Australia (2020)</h2>
             <div id="bubble_chart" class="vis-container"></div>
-            <p class="description-text">The chart illustrates the brightness trends of fires in Australia in 2020, as detected by the Aqua and Terra satellites. Notably, Aqua recorded slightly higher brightness levels, suggesting more intense fires or higher sensitivity. In contrast, Terra detected fires more frequently, indicating its capability to identify more fire events. This data comparison underscores the significance of utilizing various observational tools to comprehensively understand wildfire characteristics and occurrences.</p>
+            <p class="description-text">
+                The chart illustrates the brightness trends of fires in Australia in 2019, as detected by the Aqua and Terra satellites. Notably, Aqua recorded slightly higher brightness levels, suggesting more intense fires or higher sensitivity. In contrast, Terra detected fires more frequently, indicating its capability to identify more fire events. This data comparison underscores the significance of utilizing various observational tools to comprehensively understand wildfire characteristics and occurrences.
+            </p>
         </div>
     </div>
+    
 
     <!-- Pie and Line Charts Section -->
     <div class="pure-g section">
+        <!-- Unified Title for Both Charts -->
+        <div class="pure-u-1">
+            <h2>Analysis of Fire Data and Intensity Trends in Australia (2019)</h2>
+        </div>
+        
+        <!-- Left Side: Pie Chart and Description -->
         <div class="pure-u-1-2">
-            <h2>Fire Data by Satellite in Australia (2020)</h2>
             <div id="pie_chart" class="vis-container"></div>
             <p class="description-text">
-                The pie chart showcases the distribution of fire brightness in Australia for 2020. The majority of fires, totaling 17,290, fell within the brightness range of 320-340. Fires with brightness below 320 were also significant, with 11,522 occurrences. In contrast, the brightness range of 380-500 had the fewest fires, with only 768 recorded. The intervals 340-360 and 360-380 had 5,014 and 1,420 fires respectively, indicating a decreasing trend as brightness increased.
+                The pie chart showcases the distribution of fire brightness in Australia for 2019. The majority of fires, totaling 17,290, fell within the brightness range of 320-340. Fires with brightness below 320 were also significant, with 11,522 occurrences. In contrast, the brightness range of 380-500 had the fewest fires, with only 768 recorded. The intervals 340-360 and 360-380 had 5,014 and 1,420 fires respectively, indicating a decreasing trend as brightness increased.
             </p>
         </div>
+        
+        <!-- Right Side: Line Chart and Description -->
         <div class="pure-u-1-2">
-            <h2>Fire Intensity Trends in Australia (2020)</h2>
             <div id="line_chart" class="vis-container"></div>
             <p class="description-text">
-                The line chart illustrates the fire intensity trends in Australia during 2020, as detected by the Aqua and Terra satellites. While both satellites demonstrate a relatively stable average confidence level in their fire detection, Aqua has identified a notably higher number of fires compared to Terra. This discrepancy might be attributed to the different technologies or orbit patterns of the satellites, providing varied coverage and detection capabilities.
+                The line chart illustrates the fire intensity trends in Australia during 2019, as detected by the Aqua and Terra satellites. While both satellites demonstrate a relatively stable average confidence level in their fire detection, Aqua has identified a notably higher number of fires compared to Terra. This discrepancy might be attributed to the different technologies or orbit patterns of the satellites, providing varied coverage and detection capabilities.
             </p>
-            
         </div>
     </div>
+
 
     <!-- Footer Section -->
     <div class="pure-g section">
         <div class="pure-u-1-1 small-font">
-            <p class="description-text">This visualisation is created by <a href="https://fit3179.github.io/Vega-Lite/" target="_blank">Futong Yang</a>. The datasource is <a href="#" target="_blank">some data repository online</a>.</p>
+            <p class="bot-text">This visualisation is created by <a href="
+                https://futongyang.github.io/3179/" target="_blank">Futong Yang</a>. The datasource is <a href="https://www.kaggle.com/datasets/carlosparadis/fires-from-space-australia-and-new-zeland" target="_blank">some data repository online</a>.</p>
         </div>
     </div>
 </div>
