@@ -7,13 +7,19 @@ h1 {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
-  h2 {
-      font-size: 26px;       
-      font-weight: 600;  
-      color: #1555a386;     
-      margin-bottom: 10px;    
-      text-align: left;     
-  }
+h2 {
+  font-size: 32px;  /* 增大字体大小 */
+  font-weight: 700;  /* 增加字体粗细 */
+  color: #3a8dc5;  /* 使用更醒目的颜色 */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);  /* 添加文字阴影 */
+  border-bottom: 2px solid #1983ca;  /* 添加下划线 */
+  letter-spacing: 1px;  /* 增加文字间距 */
+  line-height: 1.5;  /* 增加行高 */
+  padding: 5px;  /* 添加一些内边距 */
+  margin-bottom: 15px;  /* 增加下边距 */
+  text-align: left;  
+}
+
 
   body {
     background-color: lightgray;
@@ -67,11 +73,11 @@ body::before {
   }
 
   .section {
-    border: 5px solid #e0e0e0;  
+    border: 8px solid #e7e2e2;  
     padding: 20px;
     margin: 20px 0;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .section:hover {
