@@ -131,6 +131,25 @@
           }
         ]
       }
+    },
+    {
+      "data": {
+        "values": [
+          {"state": "NSW", "lon": 147, "lat": -32},
+          {"state": "QLD", "lon": 145, "lat": -20},
+          {"state": "Arnhem Land", "lon": 136, "lat": -12}
+        ]
+      },
+      "mark": "text",
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "text": {"field": "state", "type": "nominal"},
+        "size": {"value": 15},
+        "color": {"value": "black"}
+      }
     }
+    
+    
   ]
 }
